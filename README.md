@@ -14,15 +14,17 @@
 
 ## 接口文档
 * URL: https://proxy.sage.run/api/get
+* 请求方式: get
 * 请求参数
 
   | 参数名 | 数据类型 | 必传 | 说明 | 示例 |
-  | :---|:---| :---| :--- | :--- |
+    | :---|:---| :---| :--- | :--- |
   |port|string|false|端口号|8080, 80|
   |type|int|false|代理协议类型 （1 = http 2 = https）|1, 2|
   |anonymous|int|false|匿名类型 （1 = 透明 2 = 普匿 3 = 高匿）|1, 2, 3|
   |country|string|false|国家|中国, 美国, 外国 （除中国之外所有国家）|
   |province|string|false|省（只有中国地区数据才有此字段）|江苏省, 浙江省|
+  |respType|string|false|接口响应格式（默认json）|json, txt|
 
 * 响应数据
 ```json
@@ -37,15 +39,21 @@
 }
 ```
 
+``` text
+183.89.115.39:80
+```
+
 ## 访问频率限制
 接口限制并发 1秒 / 5次，多次触流控会进入黑名单！
 
 ## TODO
-- 平台 - 优化前端页面
+- 开源私有部署版本
 - 平台 - 支持 Socks5 类型
-- 爬虫 - 支持更多数据源
 - 校验器 - 使用 Golang 重写
+- 平台 - 增加爬虫日志
 
+## 更新日志
+- 2023.4.27 - API支持txt格式返回
 
 ## 参考项目
 - [proxy_pool](https://github.com/jhao104/proxy_pool)
